@@ -1,10 +1,12 @@
 services:
-  demo1:
+  demo2:
     image: vicziani/demo2
     environment:
-      SERVER_PORT: 8080
+      SERVER_PORT: 8082
       SPRING_SECURITY_SAML2_RELYINGPARTY_REGISTRATION_KEYCLOAK_ENTITY_ID: courses
       SPRING_SECURITY_SAML2_RELYINGPARTY_REGISTRATION_KEYCLOAK_ASSERTINGPARTY_METADATA_URI: http://localhost:8080/realms/employees/protocol/saml/descriptor
-
-    ports:
-      - 8082:8080
+      SAML_KEY_LOCATION: file:///certs/courses.key
+      SAML_CERT_LOCATION: file:///certs/courses.crt
+    volumes:
+      - ./certs:/certs
+    network_mode: host

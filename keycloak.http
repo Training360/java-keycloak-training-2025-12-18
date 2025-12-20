@@ -1,0 +1,5 @@
+### Általános információ
+GET http://localhost:8080/realms/employees/.well-known/openid-configuration
+
+### Tanúsítványok lekérdezése
+GET http://localhost:8080/realms/employees/protocol/openid-connect/certs

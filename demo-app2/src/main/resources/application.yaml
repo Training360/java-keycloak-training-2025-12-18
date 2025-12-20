@@ -1,0 +1,23 @@
+server:
+  port: 8082
+
+spring:
+  application:
+    name: demo-app2
+
+  security:
+    saml2:
+      relyingparty:
+        registration:
+          keycloak:
+            entity-id: courses
+            assertingparty:
+              metadata-uri: http://localhost:8080/realms/employees/protocol/saml/descriptor
+              ## entity-id-t megnézni a descriptor xml-ben, nem kell megadni, mert ott ott van
+            signing:
+              credentials:
+                - private-key-location: file:///C:/trainings/java-keycloak-training-2025-12-18/demo2/certs/courses.key
+                  certificate-location: file:///C:/trainings/java-keycloak-training-2025-12-18/demo2/certs/courses.crt
+#                - private-key-location: ${SAML_KEY_LOCATION}
+#                  certificate-location: ${SAML_CERT_LOCATION}
+

@@ -1,0 +1,20 @@
+server:
+  port: 8081
+
+spring:
+  application:
+    name: demo-app
+
+  security:
+    oauth2:
+      client:
+        registration:
+          keycloak:
+            client-id: employees
+            client-secret: T2HSBFvh5eEhm2nqkyRAWLfwjDi3IZbY
+            scope: openid,profile,email
+            authorization-grant-type: authorization_code
+            redirect-uri: "{baseUrl}/login/oauth2/code/{registrationId}"
+        provider:
+          keycloak:
+            issuer-uri: http://localhost:8080/realms/employees

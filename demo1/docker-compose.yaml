@@ -6,7 +6,9 @@ services:
       SPRING_SECURITY_OAUTH2_CLIENT_REGISTRION_KEYCLOAK_CLIENT_SECRET: T2HSBFvh5eEhm2nqkyRAWLfwjDi3IZbY
       SPRING_SECURITY_OAUTH2_CLIENT_REGISTRION_KEYCLOAK_SCOPE: openid,profile,email
       SPRING_SECURITY_OAUTH2_CLIENT_REGISTRION_KEYCLOAK_AUTHORIZATION_GRANT_TYPE: authorization_code
-      SPRING_SECURITY_OAUTH2_CLIENT_REGISTRION_KEYCLOAK_REDIRECT_URI: ${baseUrl}/login/oauth2/code/{registrationId}
+      # Ez Docker Compose-ban biztos nem fog működni, ugyanis az app konténerben a localhost másra mutat
+      # Azonban a külső url-nek és a belső url-nek meg kell egyeznie
+      SPRING_SECURITY_OAUTH2_CLIENT_REGISTRION_KEYCLOAK_REDIRECT_URI: http://localhost:8081/login/oauth2/code/{registrationId}
       SPRING_SECURITY_OAUTH2_CLIENT_PROVIDER_KEYCLOAK_ISSUER_URI: http://localhost:8080/realms/employees
       SERVER_PORT: 8080
     ports:
